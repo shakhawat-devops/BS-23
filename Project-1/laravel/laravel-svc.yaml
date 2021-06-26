@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    tg: laravel-svc
+  name: laravel
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8000
+    nodePort: 30080
+  selector:
+    app: laravel
+  type: NodePort
+status:
+  loadBalancer: {}
